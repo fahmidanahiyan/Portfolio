@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Fahmida Nahiyan</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper" class="fade-in">
+                <!-- Intro -->
+                <div id="intro">
+                    <h1>BIKE SALES ANALYSIS IN EXCEL</h1>
+                    <ul class="actions">
+                        <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Header -->
+                    <header id="header">
+                        <a href="https://onedrive.live.com/edit?id=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&resid=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&cid=13cc92c03e5f181c&ithint=file%2Cxlsx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy8xM2NjOTJjMDNlNWYxODFjL0VjcVoyMDJ2b0tsSXJRY2NnUXVUVFpzQjE3T1J0Z19iYlNyRHdJWDBiWHF0QkE_ZT1jT095ZWU&migratedtospo=true&wdo=2" class="logo">View project</a>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li><a href="../index.html">Projects</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="https://www.linkedin.com/in/fahmidanahiyan" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://github.com/fahmidanahiyan" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://www.kaggle.com/fahmidanahiyan" class="icon brands alt fa-kaggle"><span class="label">Kaggle</span></a></li>
+                        </ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+
+                        <!-- Post -->
+                            <article class="post">
+                                <a href="../images/bike.jpg" class="image fit"><img src="../images/bike.jpg" alt="Bike Image"/></a>
+                                <p>This project explores a bike sales dataset, creating pivot tables and dashboard in Excel.</p>
+                                <p>You can view the dataset, pivot tables and dashboard on this <a href="https://onedrive.live.com/edit?id=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&resid=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&cid=13cc92c03e5f181c&ithint=file%2Cxlsx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy8xM2NjOTJjMDNlNWYxODFjL0VjcVoyMDJ2b0tsSXJRY2NnUXVUVFpzQjE3T1J0Z19iYlNyRHdJWDBiWHF0QkE_ZT1jT095ZWU&migratedtospo=true&wdo=2">link</a>.</p>
+
+                                <!-- Data manipulation -->
+                                <section>
+                                    <h2>Data Manipulation</h2>
+                                    <p>The <strong>bike_buyers</strong> dataset consists of several columns including people's Age, Gender, Marital Status, Income, Education, Commute Distance, Region etc.</p>
+                                    <p>The following data manipulations were performed:</p>
+                                    <ul>
+                                        <li>in the <strong>Marital Status</strong> column, the values 'M' and 'S' were replaced with the values 'Married' and 'Single' respectively,</li>
+                                        <li>in the <strong>Gender</strong> column, the values 'M' and 'F' were replaced with the values 'Male' and 'Female' respectively,</li>
+                                        <li>the data type for the <strong>Income</strong> column was set as currency,</li>
+                                        <li>in the <strong>Commute Distance</strong> column, the value '10+ Miles' was replaced with the value 'More than 10 Miles',</li>
+                                        <li>a new column, <strong>Age Brackets</strong>, was created based on the <strong>Age</strong> column with the following criteria- 
+                                            <ul style="list-style-type: circle;">
+                                                <li>Age > 54 --> 'Old'</li>
+                                                <li>31 <= Age <=54 --> 'Middle Age'</li>
+                                                <li>Age < 31 --> 'Adolescent'</li>
+                                                <li>Else --> 'Invalid'</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </section>
+
+                                <!-- data analysis -->
+                                <section>
+                                    <h2>Pivot Table and Visualizations</h2>
+                                    <p>Four pivot tables and corresponding charts were created to analyze the data:</p>
+                                    <ul>
+                                        <li>average income of customers who purchased bikes versus those who did not, categorized by gender,</li>
+                                        <li>count of purchased bikes based on customer commute distance,</li>
+                                        <li>count of purchased bikes categorized by customer age brackets,</li>
+                                        <li>count of purchased bikes based on customer age.</li>
+                                    </ul>   
+                                </section>
+                                <section>
+                                    <h2>Insights</h2>
+                                    <p>A dashboard for bike sales was created with the charts. Filters on marital status, region, and education were also added. A few insights are mentioned below, though additional findings can be uncovered by changing the filters, as it is an interactive dashboard.</p>
+                                    <ul>
+                                        <li>Females and males who buy bikes earn slightly more than those who don't (4% and 7% more, respectively). This indicates income plays a varying role in bike purchasing decisions across these groups.</li>
+                                        <li>Single females show a small 2% income difference, while single males see the largest gap, earning 18% more than non-buyers. Single males with higher incomes may be more likely to buy bikes, reflecting different spending priorities or financial flexibility compared to single females.</li>
+                                    </ul>
+                                    <p>For detailed visualizations and further insights, please chcek out the dashboard on this <a href="https://onedrive.live.com/edit?id=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&resid=13CC92C03E5F181C!s4ddb99caa0af48a9ad071c810b934d9b&cid=13cc92c03e5f181c&ithint=file%2Cxlsx&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy8xM2NjOTJjMDNlNWYxODFjL0VjcVoyMDJ2b0tsSXJRY2NnUXVUVFpzQjE3T1J0Z19iYlNyRHdJWDBiWHF0QkE_ZT1jT095ZWU&migratedtospo=true&wdo=2">link</a>.</p>   
+                                </section>
+
+                            </article>
+                    </div>
+            </div>
+        <!-- Scripts -->
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/jquery.scrollex.min.js"></script>
+            <script src="../assets/js/jquery.scrolly.min.js"></script>
+            <script src="../assets/js/browser.min.js"></script>
+            <script src="../assets/js/breakpoints.min.js"></script>
+            <script src="../assets/js/util.js"></script>
+            <script src="../assets/js/main.js"></script>
+
+    </body>
+</html>

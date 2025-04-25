@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Fahmida Nahiyan</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload";>
+
+        <!-- Wrapper -->
+            <div id="wrapper" class="fade-in">
+                <!-- Intro -->
+                <div id="intro">
+                    <h1>SBTC: Scientific Bengali Text Classification using Transformer-based Techniques</h1>
+                    <ul class="actions">
+                        <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Header -->
+                    <header id="header" style="text-align: center;">
+                        <div style="display: inline-block;">
+                            <a href="https://www.kaggle.com/datasets/fahmidanahiyan/scientific-bengali-text-classification-dataset" class="logo" style="margin-right: 20px;">View dataset</a>
+                            <a href="https://github.com/fahmidanahiyan/SBTC_NLP" class="logo">View full code</a>
+                        </div>
+                    </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li><a href="../index.html">Projects</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="https://www.linkedin.com/in/fahmidanahiyan" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://github.com/fahmidanahiyan" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://www.kaggle.com/fahmidanahiyan" class="icon brands alt fa-kaggle"><span class="label">Kaggle</span></a></li>
+                        </ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+
+                        <!-- Post -->
+                            <article class="post">
+                                <a href="../images/sbtc image.jpg" class="image fit"><img src="../images/sbtc image.jpg" alt="SBTC Project Image"/></a>
+                                <p>This project uses transformer-based techniques to classify scientific Bengali texts into their respective scientific domains. Also, performance of traditional ML and DL models are investigated on traditional and local contextual word embedding techniques.</p>
+                                <p>You can find the code for this project on <a href="https://github.com/fahmidanahiyan/SBTC_NLP">GitHub</a>.</p>
+
+                                <!-- Data Collection -->
+                                <section>
+                                    <h2>Data Collection</h2>
+                                    <p>
+                                        <p>Data was gathered from Bengali academic books, specifically those used for the Secondary School Certificate (SSC) and Higher Secondary Certificate (HSC) exams conducted by the Intermediate and Secondary Education Boards of Bangladesh. The dataset is categorized into six classes: five scientific domains and one non-scientific domain. The classes are <strong>'Physics', 'Chemistry', 'Biology', 'Information and Communication Technology (ICT)', 'Mathematics', and 'Others'</strong>. Over a period of two months, 6000 texts were collected, with 1000 texts for each class.</p>
+                                        <p>Annotation was primarily based on the subject matter of the source books. However, some texts had overlapping class boundaries. To address this, three annotators assigned labels to each data point, and the final label was determined by majority vote. An expert annotator then verified the final labels to create the definitive dataset. The average Kappa value for the dataset is 0.9928, indicating almost perfect agreement according to the kappa scale.</p>
+                                        <p>You can find the dataset on <a href="https://www.kaggle.com/datasets/fahmidanahiyan/scientific-bengali-text-classification-dataset" target="_blank">Kaggle</a>.</p>
+                                    </p>
+                                </section>
+
+                                <!-- Data Preprocessing -->
+                                <section>
+                                    <h2>Data Preprocessing</h2>
+                                    <p>The preprocessing steps included:</p>
+                                    <ul>
+                                        <li><strong>Text Cleaning:</strong> Removing punctuation, numbers, special characters, as well as Greek and English letters from the text.</li>
+                                        <li><strong>Tokenization:</strong> Splitting the text into individual words or tokens.</li>
+                                        <li><strong>Stop Words Removal:</strong> Removing common words that do not contribute to the text's meaning.</li>
+                                        <li><strong>Vectorization:</strong> Converting text into numerical vectors by exploring transformer-based techniques, traditional embedding techniques (BoW, TF-IDF) and local contextual embedding techniques (Word2Vec, FastText, GloVe).</li>
+                                        <li><strong>Padding:</strong> Ensuring all text sequences are of equal length by adding special padding tokens where necessary.</li>
+                                    </ul>
+                                </section>
+
+                                <!-- Analysis -->
+                                <section>
+                                    <h2>Data Analysis</h2>
+                                    <p>Exploratory data analysis (EDA) was performed to understand the distribution of texts across the different domains. Various visualization techniques such as bar charts, histograms, and word clouds were used to gain insights into the data.</p>
+                                    <p>Key findings from the analysis included:</p>
+                                    <ul>
+                                        <li>The total number of words and unique words in the dataset.
+                                        <li>The most frequent words in each class.</li>
+                                        <li>The length distribution of texts in the dataset.</li>
+                                        <li>The most common unigrams, bigrams, and trigrams for each class.</li>   
+                                        <li>Word clouds visualizing the most frequent words for each class.</li> 
+                                    </ul>
+                                    <p>For detailed visualizations and further insights, please refer to the <a href="https://github.com/fahmidanahiyan/SBTC_NLP/blob/main/README.md" target="_blank">README file on my GitHub repository</a>.</p>
+                                </section>
+
+                                <!-- Classification -->
+                                <section>
+                                    <h2>Classification</h2>
+                                    <p>Several classification models were implemented and evaluated, including transformers, traditional machine learning models and deep learning models:</p>
+                                    <ul>
+                                        <li><strong>Transformers:</strong> 
+                                            <p>Five transformer-based models were implemented: <strong>mBERT, Distil mBERT, Bangla BERT, Indic BERT, and XLM-RoBERTa</strong>. Initially, the dataset was divided into train, validation, and test sets in a ratio of 70:15:15. The models were trained and validated using the train and validation sets, focusing on hyperparameter optimization during the learning phase. Only the best models were evaluated on unseen data from the test set.</p>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="font-size: 1.1em;">Hyperparameters</th>
+                                                            <th style="font-size: 1.1em;">Values</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Dropout</td>
+                                                            <td>0.1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Maximum sequence length</td>
+                                                            <td>40</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Batch size</td>
+                                                            <td>32</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Number of epochs</td>
+                                                            <td>20</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Early stopping patience</td>
+                                                            <td>5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optimizer</td>
+                                                            <td>AdamW</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Learning rate</td>
+                                                            <td>2e-5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Weight decay</td>
+                                                            <td>0.01</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Loss function</td>
+                                                            <td>Cross entropy loss</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            <p><strong>XLM-RoBERTa was the best-performing model out of all the five classifiers with a macro f1-score of 0.9158 and an accuracy of 0.9156.</strong></p>
+                                        </li>
+                                        <li><strong>Traditional Machine Learning Models:</strong> The embeddings using BoW and TF-IDF were used to train four traditional machine learning (ML) models: Naive Bayes (NB), Logistic Regression (LR), Support Vector Machines (SVM), and Random Forest (RF). TF-IDF+SVM gave the best f1-score of 0.9151 and accuracy of 0.9150.</li>
+                                    </br>
+                                        <li><strong>Deep Learning Models:</strong> The embeddings using Word2Vec, FastText, and GloVe were used to train three deep learning (DL) models: Convolutional Neural Network (CNN), Bidirectional Long Short-Term Memory (BiLSTM), and CNN+BiLSTM. FastText+BiLSTM achieved the best f1-score of 0.9165 and accuracy of 0.8722.</li>
+                                    </ul>
+                                    <p>The performance of these models was evaluated using metrics such as accuracy, precision, recall, and F1-score. The transformer-based models, particularly XLM-RoBERTa, demonstrated superior performance in classifying scientific Bengali texts.</p>
+                                </section>
+
+                                <!-- Conclusion -->
+                                <section>
+                                    <h2>Future Work</h2>
+                                    <p>There are several directions for future work to enhance this project:</p>
+                                    <ul>
+                                        <li>The dataset can be extended to include more diverse and comprehensive data samples.</li>
+                                        <li>Overlapping class data can be increased to improve the model's ability to handle ambiguous cases.</li>
+                                        <li>Other model variants can be implemented, and additional hyperparameters can be explored to further optimize performance.</li>
+                                    </ul>
+                                </section>
+
+                            </article>
+                    </div>
+            </div>
+        <!-- Scripts -->
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/jquery.scrollex.min.js"></script>
+            <script src="../assets/js/jquery.scrolly.min.js"></script>
+            <script src="../assets/js/browser.min.js"></script>
+            <script src="../assets/js/breakpoints.min.js"></script>
+            <script src="../assets/js/util.js"></script>
+            <script src="../assets/js/main.js"></script>
+
+    </body>
+</html>

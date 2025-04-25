@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Fahmida Nahiyan</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper" class="fade-in">
+                <!-- Intro -->
+                <div id="intro">
+                    <h1>Nashville Housing Data Cleaning in SQL</h1>
+                    <ul class="actions">
+                        <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Header -->
+                <header id="header" style="text-align: center;">
+                    <div style="display: inline-block;">
+                        <a href="https://github.com/fahmidanahiyan/SQL-Projects/blob/main/Nashville%20Housing%20Data%20for%20Data%20Cleaning.xlsx" class="logo" style="margin-right: 20px;">View dataset</a>
+                        <a href="https://github.com/fahmidanahiyan/SQL-Projects/blob/main/Nashville%20Housing%20Data%20Cleaning%20in%20SQL.sql" class="logo">View full code</a>
+                    </div>
+                </header>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul class="links">
+                            <li><a href="../index.html">Projects</a></li>
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="https://www.linkedin.com/in/fahmidanahiyan" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://github.com/fahmidanahiyan" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://www.kaggle.com/fahmidanahiyan" class="icon brands alt fa-kaggle"><span class="label">Kaggle</span></a></li>
+                        </ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+
+                        <!-- Post -->
+                            <article class="post">
+                                <a href="../images/housing image.jpg" class="image fit"><img src="../images/housing image.jpg" alt="Data Cleaning SQL Project Image"/></a>
+                                <p>This project executes queries to clean housing data in SQL Server.</p>
+                                <p>You can find the code for this project on <a href="https://github.com/fahmidanahiyan/SQL-Projects/blob/main/Nashville%20Housing%20Data%20Cleaning%20in%20SQL.sql">GitHub</a>.</p>
+
+                                <!-- Data Analysis -->
+                                <section>
+                                    <h2>Data Cleaning</h2>
+                                    <p>You can check out the dataset on <a href="https://github.com/fahmidanahiyan/SQL-Projects/blob/main/Nashville%20Housing%20Data%20for%20Data%20Cleaning.xlsx">Github</a>. It provides information on housing data including unique ID, property address, owner address, sale date, sold as vacant or not and so on.</p>
+                                    <p>Let's dive right in!</p>
+                                        <h3>Standardizing the date format</h3>
+                                        <p>The <strong>SaleDate</strong> column has values in date time format but the time part does not hold any significance. So I converted all values of the column into date format.</p>
+                                        <h3>Populating Property Address data</h3>
+                                        <p>Some rows of the <strong>PropertyAddress</strong> data have null values. Upon investigation it was observed that there is a unique parcel ID for every property address present and that there are no null values in ParcelID column. This means that I can check for every ParcelId if I have a PropertyAddress value with an actual address and some null values then I can populate the null values with the address data. To do this, I performed a self join on matching the ParcelIDs AND not the UniqueIDs. I filtered the result on the rows with null values in the first table reference's PropertyAddress column and then set the null values with the address data in the second table reference's PropertyAddress column using the ISNULL() function.  </p>
+                                        <h3>Splitting address into individual columns (Address, City, State)</h3>
+                                        <p>The <strong>PropertyAddress</strong> and <strong>OwnerAddress</strong> columns have values with full address data. The PropertyAddress has address and city mentioned so I divided the column into separate columns for Address and City. I used the SUBSTRING() function to extract the values of the PropertyAddress column from the first character index till the position before the first comma index and added them into the new column PropertySplitAddress. I did the same thing to extract the value after the first comma index till the last character index, found using the LEN() function, and added them to the new PropertySplitCity column.</p>
+                                        <p>The OwnerAddress column has address data with address, city and state mentioned so I split the column up into three separate columns for Address, City, and State. This time I tried a different approach for learning purpose. I used PARSENAME() function after replacing all commas (",") with periods (".") as periods are the default delimiters used by the PARSENAME() function. The PARSENAME() function splits the address into parts based on the “.” delimiter but works backwards. This means it considers the rightmost part as part 1, the second rightmost part as part 2, and so on. After extraction, these parts have been added into the three new columns- OwnerSplitAddress, OwnerSplitCity, and OwnerSplitState.</p>
+                                        <h3>Changing 'Y' and 'N' to 'Yes' and 'No'</h3>
+                                        <p>The <strong>SoldAsVacant</strong> column has values in both 'Y' and 'Yes' and 'N' and 'No' which requires standardizing. For this, I used a CASE statement to set the value with 'Yes' when the value is 'Y' and with 'No' when the value is 'N'.</p>
+                                        <h3>Removing duplicates</h3>
+                                        <p>I used Common Table Expression (CTE) named <strong>RowNumCTE</strong> which selects all columns from the table and assigns a row number to each row based on a specified partition and order criteria. The partition is defined by a combination of ParcelID, PropertyAddress, SalePrice, SaleDate, and LegalReference columns and ordered by UniqueID column. Each partition has rows with the same values for these columns and is assigned a unique sequential integer called row_num, starting at 1 for the first row in each partition. Then I used a DELETE statement to delete rows from the CTE where the row_num is greater than 1. This effectively removes duplicate rows while keeping the first occurrence.</p>
+                                        <h3>Deleting unused columns</h3>
+                                        <p>For learning purpose, I deleted some unnecessary columns - <strong>OwnerAddress</strong>, <strong>TaxDistrict</strong>, <strong>PropertyAddress</strong>, and <strong>SaleDate</strong>.</p>
+                                
+                                </section>
+
+                            </article>
+                    </div>
+            </div>
+        <!-- Scripts -->
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/jquery.scrollex.min.js"></script>
+            <script src="../assets/js/jquery.scrolly.min.js"></script>
+            <script src="../assets/js/browser.min.js"></script>
+            <script src="../assets/js/breakpoints.min.js"></script>
+            <script src="../assets/js/util.js"></script>
+            <script src="../assets/js/main.js"></script>
+
+    </body>
+</html>
